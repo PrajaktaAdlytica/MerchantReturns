@@ -1,0 +1,16 @@
+# MerchantReturns static React site on Hostinger PHP/HTML hosting.
+DirectoryIndex index.html
+Options -Indexes -MultiViews
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  # Protect repository metadata if the hosting integration leaves it on disk.
+  RewriteRule (^|/)\.git(/|$) - [F,L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  # Real missing assets and APIs must not receive HTML.
+  RewriteRule ^(?:assets|images|brand|api)(?:/|$) - [L]
+  RewriteCond %{REQUEST_METHOD} ^(?:GET|HEAD)$
+  RewriteRule ^ index.html [L]
+</IfModule>
