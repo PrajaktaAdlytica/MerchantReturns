@@ -418,9 +418,6 @@ function Home() {
         </div>
         <div className="hero-scene">
           <div className="hero-halo" aria-hidden="true" />
-          <svg className="hero-thread" viewBox="0 0 640 650" fill="none" aria-hidden="true">
-            <path pathLength="1" d="M105 110 C420 80 560 180 510 290 S120 280 150 430 S480 430 460 535" />
-          </svg>
           <Img
             name="hero-cutout"
             className="hero-garment"
@@ -2148,7 +2145,6 @@ export function App() {
             .fromTo(".floating-case", { y: 0, autoAlpha: 1 }, { y: -18, autoAlpha: 0, duration: 0.6 }, 0.8)
             .fromTo(".floating-policy", { x: -85, y: 35, rotation: -9, autoAlpha: 0 }, { x: 0, y: 0, rotation: -3, autoAlpha: 1, duration: 0.8 }, 0.65)
             .fromTo(".evidence-card", { x: 85, y: 30, rotation: 6, autoAlpha: 0 }, { x: 0, y: 0, rotation: 0, autoAlpha: 1, stagger: 0.22, duration: 0.75 }, 0.9)
-            .fromTo(".hero-thread path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 2.4, ease: "none" }, 0.4)
             .to(".hero-chapters span:first-child", { opacity: 0.35, duration: 0.2 }, 1)
             .to(".hero-chapters span:nth-child(2)", { opacity: 1, duration: 0.2 }, 1)
             .to(".hero-halo", { scale: 1.4, xPercent: 15, opacity: 0.8, duration: 1.5 }, 0.4)
