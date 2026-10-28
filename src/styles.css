@@ -136,7 +136,8 @@ summary:focus-visible {
   gap: 24px;
   border-bottom: 1px solid #203a310a;
   background: var(--paper);
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 30;
 }
 .brand {
@@ -4589,4 +4590,15 @@ main {
 }
 .hero h1 em {
   font-style: normal;
+}
+
+/* Keep anchor destinations clear of the persistent navigation. */
+html { scroll-padding-top: 104px; }
+@media (max-width: 900px) {
+  html { scroll-padding-top: 92px; }
+  .nav.open { max-height: calc(100dvh - 76px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@media (max-width: 600px) {
+  html { scroll-padding-top: 86px; }
+  .nav.open { max-height: calc(100dvh - 70px); }
 }

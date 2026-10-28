@@ -80,3 +80,9 @@ P3: illustration art direction varies slightly between the miniature workflow an
 - Clean QA tab: no captured console errors. Screenshots and measurements in qa/v2/prepush-*.
 - Build and four Sites tests pass. Added Apache/LiteSpeed .htaccess SPA fallback for PHP/HTML hosting; actual Hostinger routing and SSL require post-deployment verification.
 - Forms/auth remain local concept previews; no lead backend. noindex retained. This is a quick responsive smoke check, not an exhaustive cross-browser/accessibility audit.
+
+## Sticky navigation fix
+- Header now uses position: sticky with top: 0; anchor destinations include header clearance.
+- Mobile menu height is bounded to the available viewport and scrolls when needed.
+- Browser: desktop 1440px, scrollY 1717, header top 0; mobile 390px, scrollY 1286.5, header top 0, menu opens/closes, no horizontal overflow.
+- Production build and all four tests pass. Captures: qa/v2/sticky-nav-desktop.png and sticky-nav-mobile.png.
