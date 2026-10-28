@@ -387,7 +387,7 @@ function PilotCTA() {
 function Home() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-cinema" aria-label="The story of return ER-118">
         <div className="hero-copy">
           <span className="eyebrow hero-reveal">THE MERCHANT ATELIER</span>
           <h1 className="hero-reveal">
@@ -417,6 +417,10 @@ function Home() {
           </div>
         </div>
         <div className="hero-scene">
+          <div className="hero-halo" aria-hidden="true" />
+          <svg className="hero-thread" viewBox="0 0 640 650" fill="none" aria-hidden="true">
+            <path pathLength="1" d="M105 110 C420 80 560 180 510 290 S120 280 150 430 S480 430 460 535" />
+          </svg>
           <Img
             name="hero-cutout"
             className="hero-garment"
@@ -456,8 +460,17 @@ function Home() {
               <small>Inspection not received</small>
             </div>
           </div>
-          <div className="scene-caption">
-            <span>01</span> A REQUEST BECOMES A CASE <ArrowDown size={14} />
+          <div className="hero-resolution ui-card">
+            <div className="hero-resolution-top"><UserCircle size={26} /><span>THE DECISION STAYS HUMAN</span><Tag>DEMO</Tag></div>
+            <strong>Context gathered.<br /><em>Judgment belongs to you.</em></strong>
+            <p>Condition uncertain. Inspection not received. Mira Chen, CX reviewer, decides the next step.</p>
+            <a href="/demo">Review case ER-118 <ArrowUpRight size={17} /></a>
+            <small>Approval pending · Customer appeal available</small>
+          </div>
+          <div className="hero-story-rail" aria-label="Three chapters: request, context, human review">
+            <div className="hero-story-track"><i /></div>
+            <div className="hero-chapters"><span>01 <b>The request</b></span><span>02 <b>The context</b></span><span>03 <b>Your decision</b></span></div>
+            <a href="#decision-story" className="hero-scroll-cue">Scroll to unfold the case <ArrowDown size={13} /><span>Skip story ↗</span></a>
           </div>
         </div>
       </section>
@@ -472,7 +485,7 @@ function Home() {
           Read the boundaries <ArrowUpRight size={13} />
         </a>
       </div>
-      <section className="decision-section">
+      <section className="decision-section" id="decision-story">
         <Img className="fabric-bg" name="fabric" alt="" loading="lazy" />
         <div className="decision-heading reveal">
           <span className="eyebrow">02 / EVIDENCE ALIGNS</span>
@@ -2069,21 +2082,7 @@ export function App() {
           stagger: 0.13,
           ease: "power3.out",
         });
-        gsap.from(".hero-garment", {
-          scale: 1.08,
-          y: 24,
-          opacity: 0,
-          duration: 1.5,
-          ease: "power3.out",
-        });
-        gsap.from(".hero-float", {
-          y: 32,
-          opacity: 0,
-          duration: 0.85,
-          stagger: 0.16,
-          delay: 0.4,
-          ease: "power3.out",
-        });
+
       }
       gsap.utils.toArray(".reveal").forEach((el) => {
         const dir = el.dataset.direction;
@@ -2132,17 +2131,35 @@ export function App() {
           },
         });
       mm.add("(min-width: 901px) and (min-height: 700px)", () => {
-        if (document.querySelector(".hero"))
-          gsap.to(".hero-garment", {
-            y: 55,
-            ease: "none",
+        if (document.querySelector(".hero")) {
+          // A reversible three-act scene. No autonomous decision is implied.
+          const story = gsap.timeline({
+            defaults: { ease: "power2.inOut" },
             scrollTrigger: {
-              trigger: ".hero",
-              start: "top top",
-              end: "bottom top",
-              scrub: 1,
+              trigger: ".hero", start: "top 88px", end: "+=1800",
+              pin: true, scrub: 0.65, invalidateOnRefresh: true,
             },
           });
+          gsap.set(".hero-garment", { transformOrigin: "50% 42%" });
+          gsap.set(".hero-chapters span", { opacity: 0.35 });
+          gsap.set(".hero-chapters span:first-child", { opacity: 1 });
+          story
+            .fromTo(".hero-garment", { scale: 1.06, xPercent: 0, yPercent: 0 }, { scale: 1.34, xPercent: -5, yPercent: 3, duration: 1.4 }, 0)
+            .fromTo(".floating-case", { y: 0, autoAlpha: 1 }, { y: -18, autoAlpha: 0, duration: 0.6 }, 0.8)
+            .fromTo(".floating-policy", { x: -85, y: 35, rotation: -9, autoAlpha: 0 }, { x: 0, y: 0, rotation: -3, autoAlpha: 1, duration: 0.8 }, 0.65)
+            .fromTo(".evidence-card", { x: 85, y: 30, rotation: 6, autoAlpha: 0 }, { x: 0, y: 0, rotation: 0, autoAlpha: 1, stagger: 0.22, duration: 0.75 }, 0.9)
+            .fromTo(".hero-thread path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 2.4, ease: "none" }, 0.4)
+            .to(".hero-chapters span:first-child", { opacity: 0.35, duration: 0.2 }, 1)
+            .to(".hero-chapters span:nth-child(2)", { opacity: 1, duration: 0.2 }, 1)
+            .to(".hero-halo", { scale: 1.4, xPercent: 15, opacity: 0.8, duration: 1.5 }, 0.4)
+            .to(".hero-garment", { scale: 0.9, xPercent: -14, yPercent: -8, duration: 1.3 }, 2)
+            .to(".floating-policy", { autoAlpha: 0, x: -35, y: -15, duration: 0.6 }, 2.1)
+            .to(".evidence-card", { autoAlpha: 0, x: 35, stagger: 0.12, duration: 0.6 }, 2.15)
+            .fromTo(".hero-resolution", { y: 75, scale: 0.94, autoAlpha: 0 }, { y: 0, scale: 1, autoAlpha: 1, duration: 0.9 }, 2.5)
+            .to(".hero-chapters span:nth-child(2)", { opacity: 0.35, duration: 0.2 }, 2.65)
+            .to(".hero-chapters span:last-child", { opacity: 1, duration: 0.2 }, 2.65)
+            .fromTo(".hero-story-track i", { scaleX: 0 }, { scaleX: 1, duration: 3.8, ease: "none" }, 0);
+        }
         const track = document.querySelector(".suite-track");
         if (track) {
           const travel = () => Math.max(0, track.scrollWidth - innerWidth + 80);
@@ -2159,6 +2176,23 @@ export function App() {
             },
           });
         }
+      });
+      mm.add("(max-width: 900px), (max-height: 699px)", () => {
+        if (!document.querySelector(".hero")) return;
+        // Short viewports keep native vertical flow; the cards reveal in reading order.
+        gsap.fromTo(".hero-garment", { scale: 1.04 }, {
+          scale: 1.16, ease: "none",
+          scrollTrigger: { trigger: ".hero-scene", start: "top 85%", end: "bottom 25%", scrub: 0.5 },
+        });
+        gsap.utils.toArray(".hero-float, .hero-resolution").forEach((card, index) => {
+          gsap.from(card, {
+            y: 30, x: index % 2 ? -15 : 15, opacity: 0, duration: 0.8,
+            scrollTrigger: { trigger: card, start: "top 94%", once: true },
+          });
+        });
+        gsap.fromTo(".hero-story-track i", { scaleX: 0 }, { scaleX: 1, ease: "none",
+          scrollTrigger: { trigger: ".hero-scene", start: "top 80%", end: "bottom 75%", scrub: true },
+        });
       });
     }, root);
     const refresh = () => ScrollTrigger.refresh();

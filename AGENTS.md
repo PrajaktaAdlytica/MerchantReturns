@@ -9,3 +9,5 @@ When implementing from a selected generated mock, treat that image as the source
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
 
 - Keep the shared navigation visible at the top while scrolling, on desktop and mobile. Account for its height at anchor destinations.
+
+- The homepage hero tells a three-chapter scroll story (request → policy/evidence → human review), with cinematic zoom and staged reveals. Keep the final decision pending; use unpinned vertical reveals on small screens and a complete static scene for reduced motion.

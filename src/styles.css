@@ -4602,3 +4602,68 @@ html { scroll-padding-top: 104px; }
   html { scroll-padding-top: 86px; }
   .nav.open { max-height: calc(100dvh - 70px); }
 }
+
+/* Cinematic case story: static composition first, enhanced by ScrollTrigger. */
+.hero-cinema .hero-scene { isolation: isolate; min-height: 900px; }
+.hero-halo { position: absolute; inset: 8% 5% 20%; border-radius: 50%; background: radial-gradient(ellipse, #c4bca647, transparent 68%); pointer-events: none; z-index: -1; }
+.hero-thread { position: absolute; inset: 0; width: 100%; height: 90%; opacity: .4; pointer-events: none; }
+.hero-thread path { stroke: #a67248; stroke-width: 1.2; stroke-dasharray: 1; }
+.hero-cinema .hero-garment { height: 75%; top: 0; }
+.hero-cinema .floating-policy { bottom: 430px; }
+.hero-resolution { position: absolute; bottom: 82px; right: 4%; width: 330px; padding: 22px 25px; z-index: 4; box-shadow: 0 24px 70px #243b3122; background: #fffdf7f5; }
+.hero-resolution-top { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.hero-resolution-top > span:not(.tag) { font-size: 8px; letter-spacing: 1.3px; font-weight: 700; }
+.hero-resolution .tag { font-size: 7px; margin-left: auto; }
+.hero-resolution > strong { font-family: Newsreader, serif; font-size: 30px; line-height: 1.05; font-weight: 400; display: block; }
+.hero-resolution > strong em { color: #5b725a; }
+.hero-resolution p { font-size: 11px; line-height: 1.6; margin: 14px 0; }
+.hero-resolution > a { display: flex; justify-content: space-between; background: var(--forest); color: white; padding: 13px; font-size: 11px; border-radius: 4px; }
+.hero-resolution > a:hover { background: #355344; }
+.hero-resolution > small { display: block; font-size: 8px; margin-top: 12px; color: var(--muted); }
+.hero-story-rail { position: absolute; bottom: 12px; left: 0; right: 0; z-index: 5; }
+.hero-story-track { height: 1px; background: #203b3226; margin-bottom: 12px; }
+.hero-story-track i { display: block; height: 2px; background: #a67248; transform-origin: left; }
+.hero-chapters { display: flex; justify-content: space-between; gap: 8px; }
+.hero-chapters span { font-size: 9px; color: #806a51; }
+.hero-chapters b { font-weight: 600; color: var(--forest); margin-left: 8px; }
+.hero-scroll-cue { display: flex; align-items: center; gap: 8px; font-size: 9px; margin-top: 12px; color: var(--muted); }
+.hero-scroll-cue > span { margin-left: auto; }
+.hero-scroll-cue:hover { color: var(--forest); }
+@media (min-width: 901px) and (min-height: 700px) {
+  .hero-cinema { height: calc(100svh - 88px); min-height: 0; max-height: 1000px; }
+  .hero-cinema .hero-scene { height: 100%; min-height: 0; }
+  .hero-cinema .hero-garment { height: 95%; }
+  .hero-cinema .hero-copy { padding-top: clamp(12px, 3vh, 35px); }
+  .hero-cinema h1 { font-size: clamp(52px, min(5.55vw, 8.4vh), 85px); }
+  .hero-cinema .hero-copy > p { font-size: clamp(12px, 1.7vh, 16px); margin-top: 20px; }
+  .hero-cinema .hero-principles { margin-top: 22px; }
+  .hero-cinema .floating-policy { bottom: 105px; }
+  .hero-cinema .hero-resolution { bottom: 100px; }
+}
+@media (max-width: 900px) {
+  .hero-cinema .hero-scene { min-height: 900px; }
+  .hero-cinema .hero-garment { height: 65%; }
+  .hero-cinema .floating-policy { bottom: 430px; }
+  .hero-cinema .hero-resolution { width: min(330px, 90%); right: 5%; }
+  .hero-cinema .hero-story-rail { left: 5%; right: 5%; }
+  .hero-cinema .evidence-stack { right: 3%; }
+}
+@media (max-width: 600px) {
+  .hero-cinema .hero-scene { min-height: 940px; }
+  .hero-cinema .hero-garment { height: 470px; }
+  .hero-cinema .floating-policy { bottom: 430px; left: 25px; }
+  .hero-cinema .hero-resolution { bottom: 90px; width: calc(100% - 44px); right: 22px; }
+  .hero-cinema .evidence-stack { top: 140px; }
+  .hero-cinema .hero-thread { height: 520px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinema { height: auto; max-height: none; }
+  .hero-cinema .hero-scene { min-height: 900px; }
+  .hero-cinema .hero-garment { height: 65%; }
+  .hero-cinema .floating-policy { bottom: 430px; }
+}
+[data-motion="off"] .hero-cinema { height: auto; max-height: none; }
+[data-motion="off"] .hero-cinema .hero-scene { min-height: 940px; }
+[data-motion="off"] .hero-cinema .hero-garment { height: 65%; }
+[data-motion="off"] .hero-cinema .floating-policy { bottom: 430px; }
+.hero-story-rail { padding: 10px 12px; background: #f9f7f0e8; border-radius: 4px; backdrop-filter: blur(8px); }
