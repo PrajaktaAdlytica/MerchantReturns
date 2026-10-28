@@ -1,0 +1,63 @@
+[
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Five focused products.One shared case.",
+    "route": "/products",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Every handoff.A clearer owner.",
+    "route": "/products/returns-signal",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Start with a question.Fund a controlled test.",
+    "route": "/pricing",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Your exceptions.Your policy.A fair test.",
+    "route": "/pilot",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Exception desk10 cases",
+    "route": "/demo",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Welcome back.",
+    "route": "/sign-in",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 390,
+    "heading": "Every exception deserves aconsidered decision.",
+    "route": "/",
+    "width": 390
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 768,
+    "route": "/products",
+    "width": 768
+  },
+  {
+    "brokenImages": [],
+    "documentWidth": 1440,
+    "route": "/products",
+    "width": 1440
+  }
+]

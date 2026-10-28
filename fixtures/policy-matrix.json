@@ -1,0 +1,24 @@
+{
+  "label": "DEMO — SYNTHETIC DATA",
+  "id": "POL-APP-03",
+  "version": 3,
+  "effective": "2026-10-01",
+  "clauses": [
+    {
+      "clause": "§4.1 · Return window",
+      "rule": "A request within 30 days of fictional delivery is inside the standard review window. ER-118: delivered 12 Oct, requested 28 Oct, 16 elapsed days. ER-122: delivered 20 Sep, requested 28 Oct, 38 days; requires an authorized policy exception. Being inside the window does not establish eligibility."
+    },
+    {
+      "clause": "§4.2 · Condition",
+      "rule": "Items must be unworn, unaltered and with original tags under this fictional policy. ER-118 worn status is uncertain. The reviewer must consider source evidence and customer explanation. Missing evidence is not an automatic rejection."
+    },
+    {
+      "clause": "§4.3 · Compatible alternatives",
+      "rule": "Alternatives must satisfy the merchant-approved size rule, available mock inventory and merchandising list. ER-118 has size L, four mock units, and an approved same-style alternative pending CX approval. ER-121 and ER-126 have no compatible recommendation; refund review remains a human decision."
+    },
+    {
+      "clause": "§4.4 · Appeal & disposition",
+      "rule": "Customers may ask for another human review, including in suspected-abuse cases. Warehouse disposition requires an authorized inspection signal and human approval. No request alone establishes receipt, condition or a completed refund."
+    }
+  ]
+}

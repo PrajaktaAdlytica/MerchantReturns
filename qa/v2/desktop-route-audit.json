@@ -1,0 +1,58 @@
+[
+  {
+    "broken": [],
+    "heroHeight": 660,
+    "path": "/products/returns-desk",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 660,
+    "path": "/products/returns-review",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 660,
+    "path": "/products/returns-proof",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 660,
+    "path": "/products/returns-report",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 660,
+    "path": "/platform",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 660,
+    "path": "/solutions",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 405,
+    "path": "/pricing",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "broken": [],
+    "heroHeight": 1072,
+    "path": "/pilot",
+    "scroll": 1440,
+    "width": 1440
+  }
+]

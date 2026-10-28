@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "returns-desk",
+    "name": "Returns Desk",
+    "verb": "Find the clause. Keep the context.",
+    "short": "Policy-grounded resolution & escalation",
+    "description": "Bring the request, the policy and the unresolved question into one considered review. Start with fit-related exceptions that need a person, not another self-service form.",
+    "metric": "Resolution minutes · reviewer overrides",
+    "input": "Customer return intent + versioned merchant policy",
+    "output": "An evidence-linked recommendation for a named CX reviewer",
+    "boundary": "Policy matches do not establish eligibility. The merchant decides.",
+    "steps": [
+      "Read the request",
+      "Locate the policy clause",
+      "Surface what is uncertain",
+      "Assign the human decision"
+    ],
+    "price": "$600 / 100 reviewed cases",
+    "state": "First pilot hypothesis",
+    "icon": "FileText"
+  },
+  {
+    "slug": "returns-review",
+    "name": "Returns Review",
+    "verb": "A better fit. With your approval.",
+    "short": "Merchant-approved exchange compatibility",
+    "description": "Evaluate an alternative against size, stock and merchandising rules. A compatible recommendation is useful only when your team is prepared to stand behind it.",
+    "metric": "Exchange acceptance · net margin · complaints",
+    "input": "Original SKU + mock inventory + approved merchandising rules",
+    "output": "A constrained shortlist for a merchandising approver",
+    "boundary": "Generic exchange suggestions already exist. Incremental compatibility value must be tested.",
+    "steps": [
+      "Identify the fit issue",
+      "Check size and inventory",
+      "Apply merchandising rules",
+      "Accept or reject the alternative"
+    ],
+    "price": "Scope and fee to validate",
+    "state": "Proposed module",
+    "icon": "ArrowsLeftRight"
+  },
+  {
+    "slug": "returns-proof",
+    "name": "Returns Proof",
+    "verb": "See the evidence. Leave room for doubt.",
+    "short": "Photo, serial & exception evidence intake",
+    "description": "Keep photos, item details and customer context beside the question they help answer. Missing evidence stays visible; it never becomes an automatic rejection.",
+    "metric": "Evidence completion · review minutes · appeal rate",
+    "input": "Permissioned photos + item identifiers + customer explanation",
+    "output": "A source-indexed evidence packet for exception review",
+    "boundary": "Evidence collection is not abuse scoring. Customers can explain or appeal.",
+    "steps": [
+      "Request relevant evidence",
+      "Associate it with the item",
+      "Mark gaps and ambiguity",
+      "Send to the reviewer"
+    ],
+    "price": "Scope and fee to validate",
+    "state": "Proposed module",
+    "icon": "Scan"
+  },
+  {
+    "slug": "returns-signal",
+    "name": "Returns Signal",
+    "verb": "Every handoff. A clearer owner.",
+    "short": "Warehouse inspection & disposition coordination",
+    "description": "Connect the customer conversation to what the warehouse actually sees. Distinguish requested, received and inspected states before proposing a disposition.",
+    "metric": "Inspection lag · disposition accuracy · handoff time",
+    "input": "Consented 3PL event + inspection notes + case reference",
+    "output": "A dated inspection signal and proposed disposition",
+    "boundary": "No receipt is inferred from a request. No carrier labels or physical actions are generated.",
+    "steps": [
+      "Assign the handoff",
+      "Wait for a warehouse event",
+      "Review inspection evidence",
+      "Approve the disposition"
+    ],
+    "price": "Scope and fee to validate",
+    "state": "Proposed module",
+    "icon": "Package"
+  },
+  {
+    "slug": "returns-report",
+    "name": "Returns Report",
+    "verb": "Let every exception teach you something.",
+    "short": "Return reasons → catalog & quality feedback",
+    "description": "Turn carefully reviewed cases into questions your catalog and quality teams can act on. A fit pattern can inform a size guide; a repeated quality concern can prompt inspection.",
+    "metric": "Actioned feedback · repeat reasons · verified quality findings",
+    "input": "Reviewed reason taxonomy + SKU context + inspection evidence",
+    "output": "An illustrative catalog or quality review brief",
+    "boundary": "Sample records are not measured performance. Correlation is not a confirmed defect.",
+    "steps": [
+      "Normalize reviewed reasons",
+      "Group by product context",
+      "Inspect the underlying cases",
+      "Assign a catalog action"
+    ],
+    "price": "Scope and fee to validate",
+    "state": "Proposed module",
+    "icon": "ChartBar"
+  }
+]
