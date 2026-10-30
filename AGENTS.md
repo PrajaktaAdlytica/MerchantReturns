@@ -11,3 +11,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Keep the shared navigation visible at the top while scrolling, on desktop and mobile. Account for its height at anchor destinations.
 
 - The homepage hero tells a three-chapter scroll story (request → policy/evidence → human review), with cinematic zoom and staged reveals. Keep the final decision pending; use unpinned vertical reveals on small screens and a complete static scene for reduced motion.
+
+- Homepage opens with the supplied sweater-folding film, played once, with left-aligned MerchantReturns copy. Advance smoothly into the existing hero only while the viewer remains in the intro; reveal hero content from top to bottom. Keep skip/pause controls and respect reduced motion.

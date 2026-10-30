@@ -30,6 +30,7 @@ import {
   Buildings,
 } from "@phosphor-icons/react";
 import gsap from "gsap";
+import VideoIntro from "./VideoIntro";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { modules, records, pages } from "./data";
@@ -387,7 +388,8 @@ function PilotCTA() {
 function Home() {
   return (
     <>
-      <section className="hero hero-cinema" aria-label="The story of return ER-118">
+      <VideoIntro />
+      <section id="atelier-hero" tabIndex={-1} className="hero hero-cinema" aria-label="The story of return ER-118">
         <div className="hero-copy">
           <span className="eyebrow hero-reveal">THE MERCHANT ATELIER</span>
           <h1 className="hero-reveal">
@@ -2067,17 +2069,29 @@ export function App() {
       smoothWheel: true,
     });
     lenis.on("scroll", ScrollTrigger.update);
+    const enterFromFilm = () => {
+      const target = document.querySelector("#atelier-hero");
+      if (target) lenis.scrollTo(window.scrollY + target.getBoundingClientRect().top - document.querySelector(".header").offsetHeight, {
+        duration: 1.8, easing: (t) => 1 - Math.pow(1 - t, 4),
+      });
+    };
+    window.addEventListener("merchantreturns:enter", enterFromFilm);
     const tick = (t) => lenis.raf(t * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
     const ctx = gsap.context(() => {
       if (document.querySelector(".hero")) {
         gsap.from(".hero-reveal", {
-          y: 26,
+          y: -32,
           opacity: 0,
           duration: 0.9,
-          stagger: 0.13,
+          stagger: 0.16,
           ease: "power3.out",
+          scrollTrigger: { trigger: ".hero", start: "top 60%", once: true },
+        });
+        gsap.from(".hero-scene", {
+          y: -40, opacity: 0, duration: 1.2, ease: "power3.out",
+          scrollTrigger: { trigger: ".hero", start: "top 60%", once: true },
         });
 
       }
@@ -2197,6 +2211,7 @@ export function App() {
     window.addEventListener("load", onLoad);
     return () => {
       window.removeEventListener("load", onLoad);
+      window.removeEventListener("merchantreturns:enter", enterFromFilm);
       mm.revert();
       ctx.revert();
       gsap.ticker.remove(tick);
@@ -2243,6 +2258,7 @@ export function App() {
   return (
     <div
       ref={root}
+      className={path === "/" ? "has-video-intro" : undefined}
       data-motion={
         new URLSearchParams(location.search).get("motion") === "off"
           ? "off"
